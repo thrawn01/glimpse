@@ -25,8 +25,7 @@ def exception_to_str(exc):
         try:
             error = str(exc)
         except UnicodeError:
-            error = ("Caught '%(exception)s' exception." %
-                     {"exception": exc.__class__.__name__})
+            error = ("Caught '%s' exception." % exc.__class__.__name__)
     return encodeutils.safe_encode(error, errors='ignore')
 
 
