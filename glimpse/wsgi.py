@@ -20,6 +20,7 @@ from __future__ import print_function
 
 from oslo.concurrency import processutils
 from oslo.serialization import jsonutils
+import oslo.log.loggers as loggers
 from eventlet.green import socket
 import oslo.log.log as logging
 from glimpse import exception
@@ -278,7 +279,7 @@ class Server(object):
         try:
             eventlet.wsgi.server(self.sock,
                                  self.application,
-                                 log=logging.WritableLogger(self.logger),
+                                 log=loggers.WritableLogger(self.logger),
                                  custom_pool=self.pool,
                                  debug=False)
         except socket.error as err:
@@ -290,7 +291,7 @@ class Server(object):
         """Start a WSGI server in a new green thread."""
         self.logger.info(_("Starting single process server"))
         eventlet.wsgi.server(sock, application, custom_pool=self.pool,
-                             log=logging.WritableLogger(self.logger),
+                             log=loggers.WritableLogger(self.logger),
                              debug=False)
 
 

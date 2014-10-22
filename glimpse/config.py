@@ -2,7 +2,7 @@
 def set_defaults(CONF):
     CONF.set_default('logging_exception_prefix',
                      '%(color)s%(asctime)s.%(msecs)03d TRACE %(name)s'
-                     '[01;35m%(instance)s[00m')
+                     ' [01;35m%(instance)s[00m')
     CONF.set_default('logging_debug_format_suffix', '[00;33mfrom'
                      '(pid=%(process)d) %(funcName)s '
                      '%(pathname)s:%(lineno)d[00m')
