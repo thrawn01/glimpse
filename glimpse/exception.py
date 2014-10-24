@@ -35,3 +35,7 @@ class WorkerCreationFailure(GlimpseException):
 
 class InvalidContentType(GlimpseException):
     message = _("Invalid content type %(content_type)s")
+
+
+class JobAlreadyRunning(GlimpseException):
+    message = _("Conversion job for image '%(image_id)s' already running")
